@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+{
+            font-family: Tahoma !important;
+			padding:0;
+			margin:0;
+			border:0;
+}
+
+p.ui-state-hover
+{
+	font-weight: normal;
+}
+p.ui-widget-header
+{
+    text-align: center;
+    font-weight: normal;
+}
+strong.ui-state-error
+{
+    display: block;
+    padding: 3px;
+    text-align: center;
+}

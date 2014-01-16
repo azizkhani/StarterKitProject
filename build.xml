@@ -1,0 +1,68 @@
+<project name="baharan-core" basedir="." default="deploy-full">
+
+	<property name="webapp.name" value="AFCProject" />
+	<property name="project.dir" value="${basedir}" />
+
+	<property environment="env" />
+	<property name="tomcat.home" value="/azizkhani/Download/tomcat7" />
+
+	<!-- Core -->
+	<property name="src.dir" value="${project.dir}/src/main/java" />
+	<property name="web.dir" value="${project.dir}/src/main/webapp" />
+	<property name="bin.dir" value="${project.dir}/target/classes" />
+	<property name="deploy.dir" value="${tomcat.home}/webapps/${webapp.name}" />
+	<property name="maven.dir" value="${project.dir}/target/AFCProject" />
+	
+	<target name="touch-tomcat">
+		<touch file="${deploy.dir}/WEB-INF/web.xml">
+		</touch>
+	</target>
+
+	<target name="copy-classes">
+		<mkdir dir="${deploy.dir}" />
+		<sequential>
+			<copy todir="${deploy.dir}/WEB-INF/classes">
+				<fileset dir="${bin.dir}">
+				</fileset>
+			</copy>
+		</sequential>
+	</target>
+	<target name="clean-tomcat-copy-fromMavenDeploy">
+		<sequential>
+			<delete dir="${tomcat.home}/temp/" />
+			<mkdir dir="${tomcat.home}/temp/" />
+			<delete dir="${tomcat.home}/work/" />
+			<mkdir dir="${tomcat.home}/work/" />
+			<delete dir="${deploy.dir}" />
+			<mkdir dir="${deploy.dir}" />
+			<copy todir="${deploy.dir}">
+				<fileset dir="${maven.dir}">
+				</fileset>
+			</copy>
+		</sequential>
+	</target>
+	<target name="copy-web">
+		<sequential>
+			<copy todir="${deploy.dir}">
+				<fileset dir="${web.dir}">
+				</fileset>
+			</copy>
+		</sequential>
+	</target>
+
+	<target name="clean-tomcat">
+		<sequential>
+			<delete dir="${tomcat.home}/temp/" />
+			<mkdir dir="${tomcat.home}/temp/" />
+			<delete dir="${tomcat.home}/work/" />
+			<mkdir dir="${tomcat.home}/work/" />
+			<delete dir="${deploy.dir}" />
+		</sequential>
+	</target>
+
+	<target name="deploy-full" depends="copy-classes,copy-web" />
+
+	<target name="clean-redeploy" depends="clean-tomcat,deploy-full" />
+
+	<target name="deploy-reload" depends="deploy-full,touch-tomcat" />
+</project>

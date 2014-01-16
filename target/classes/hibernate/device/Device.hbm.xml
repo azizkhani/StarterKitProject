@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	
+	   <class name="org.baharan.model.device.Device" table="AFC_Device" lazy="false">
+		<id name="id"  column="Id">
+			<generator  class="sequence"/>
+		</id>
+		
+		<property name="code" 			type="string" 	column="Code" 			not-null="true" length="50" unique="true" />
+		<property name="description" 	type="string" 	column="Description" 	not-null="true" length="50" /> 
+		
+		
+		<many-to-one name="deviceGroup" entity-name="org.baharan.model.device.DeviceGroup" update="false">
+                <column name="DeviceGroupId" not-null="false" />
+        </many-to-one>
+		
+        <many-to-one name="model" entity-name="org.baharan.model.baseInfo.BaseInformation" fetch="join">
+                <column name="ModelId" not-null="true" />
+        </many-to-one> 
+	
+	   <many-to-one name="mark" entity-name="org.baharan.model.baseInfo.BaseInformation" fetch="join">
+                <column name="MarkId" not-null="true" />
+        </many-to-one> 
+
+        <property name="createdBy" 		type="integer" 	column="CreatedBy" 		not-null="true" update="false" />
+		<property name="updatedBy" 		type="integer" 	column="UpdatedBy" 		not-null="true" />
+		<property name="createdDate" 	type="date" 	column="CreatedDate" 	not-null="false" update="false" />
+		<property name="updatedDate" 	type="date" 	column="UpdatedDate" 	not-null="false" />
+	</class>
+
+</hibernate-mapping>

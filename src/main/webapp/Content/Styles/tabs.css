@@ -1,0 +1,58 @@
+#tabList { padding:3px 20px; margin:0.1em 10px 0px 0px; line-height:1em; text-align:right;}
+
+#tabList li { list-style:none; display:inline; margin:0px;z-index:3px;padding:2px;}
+
+
+#tabList li a { border:1px solid #A1A1A1; padding:3px 0.5em; margin:0px;font-family:tahoma;font-size:12px;padding-bottom:7px;
+  -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px;
+}
+
+
+#tabList li a.linkSelected { background:#F3F3F3; border-bottom:0px solid white;font-family:tahoma;font-size:12px;
+  padding-top:4px; 
+}
+
+#tabList li a.linkUnselected { background:#bbb; border-bottom:1px solid #F3F3F3; font-family:tahoma;font-size:11px;}
+
+#tabList li a:link { color:navy; text-decoration:none; }
+
+#tablist li a:visited { color:navy; text-decoration:none; }
+
+
+/* Insert height/width here to give all the content a unified size */
+
+#tabContents { margin:2px;padding:2px; border-top:1px solid #BBCCDD; }
+
+.tabcontent { display:none; }
+
+
+#tabList li.tabInvisible { display:none; }
+
+.linkSelected{color:black}
+/*----------------SEARCH ---------------*/
+#searchTabList { padding:3px 20px; margin:0.1em 10px 0px 0px; line-height:1em; text-align:right;margin-bottom:0px;padding-bottom:0px}
+
+#searchTabList li { list-style:none; display:inline; margin:0px;z-index:3px;padding:2px;}
+
+
+#searchTabList li a { border:1px solid #A1A1A1; padding:3px 0.5em; margin:0px;font-family:tahoma;font-size:12px;padding-bottom:7px;
+  -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px;
+}
+
+
+#searchTabList li a.linkSelected { background:#F3F3F3; border-bottom:0px solid white;
+  padding-top:4px; font-family:tahoma;font-size:12px;
+}
+
+#searchTabList li a.linkUnselected { background:#bbb; border-bottom:1px solid #F3F3F3; font-family:tahoma;font-size:11px;}
+
+#searchTabList li a:link { color:navy; text-decoration:none; }
+
+#searchTabList li a:visited { color:navy; text-decoration:none; }
+
+
+/* Insert height/width here to give all the content a unified size */
+
+#searchTabContents { padding:2px;margin:2px; border-top:1px solid #BBCCDD; }
+
+#searchTabList li.tabInvisible { display:none; }
