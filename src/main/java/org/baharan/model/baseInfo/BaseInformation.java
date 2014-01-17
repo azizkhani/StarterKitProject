@@ -2,8 +2,9 @@ package org.baharan.model.baseInfo;
 
 import org.baharan.model.BaseEntity;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 public class BaseInformation extends BaseEntity

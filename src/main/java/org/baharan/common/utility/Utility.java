@@ -19,7 +19,7 @@ public class Utility {
 	}
 	
 	
-	public static void main(String[] argv) {
+	public static void main3(String[] argv) {
 		 
 		System.out.println("-------- Oracle JDBC Connection Testing ------");
  

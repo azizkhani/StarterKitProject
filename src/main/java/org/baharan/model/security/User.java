@@ -1,17 +1,17 @@
 package org.baharan.model.security;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Set;
 
-
-import org.baharan.common.utility.*;
 import org.baharan.model.BaseEntity;
- 
 import org.baharan.model.location.Location;
 import org.baharan.model.personel.Personel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 public class User extends BaseEntity implements UserDetails {

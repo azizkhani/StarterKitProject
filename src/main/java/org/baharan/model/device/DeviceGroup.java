@@ -1,11 +1,11 @@
 package org.baharan.model.device;
 
-import java.util.List;
 import java.util.Set;
 
 import org.baharan.model.BaseEntity;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class DeviceGroup extends BaseEntity{

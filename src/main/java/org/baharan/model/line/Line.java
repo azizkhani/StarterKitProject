@@ -4,7 +4,6 @@ import org.baharan.model.BaseEntity;
 import org.baharan.model.personel.Personel;
 import org.baharan.model.terminal.Terminal;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 public class Line extends BaseEntity {
 
