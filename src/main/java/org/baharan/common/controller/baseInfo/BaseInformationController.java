@@ -1,25 +1,27 @@
 package org.baharan.common.controller.baseInfo;
 
 import java.util.Date;
+
+import org.baharan.common.utility.dozer.annotation.CustomMapping;
+import org.baharan.common.utility.dozer.annotation.CustomRequestBody;
+import org.baharan.common.utility.dozer.annotation.ResponseView;
+import org.baharan.common.viewmodel.BaseInformationViewModel;
 import org.baharan.core.QueryResult;
 import org.baharan.dao.baseInfo.IBaseInformationRepository;
 import org.baharan.model.baseInfo.BaseInformation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 @RequestMapping("/baseinformation")
-public class BaseInformationController 
-{
+public class BaseInformationController {
+	
 	@Autowired(required = true)
 	private IBaseInformationRepository baseRepo;
 	
@@ -32,6 +34,7 @@ public class BaseInformationController
 	
 	@RequestMapping("/load/{Id}")
 	@ResponseBody
+	@ResponseView(BaseInformationViewModel.class)
 	public  BaseInformation load(@PathVariable int Id) {
 		return baseRepo.loadByEntityId(Id);	
 	}
@@ -46,8 +49,10 @@ public class BaseInformationController
 	
 	@RequestMapping(value = "/save/{parentId}", method = RequestMethod.POST)
 	@ResponseBody
-	public  Boolean save(@RequestBody BaseInformation base, @PathVariable int parentId) 
-	{
+	public  Boolean save( 	@CustomMapping(source=BaseInformationViewModel.class,destination=BaseInformation.class) 
+							@CustomRequestBody 
+							BaseInformation base, 
+							@PathVariable int parentId) {
 		if (base.getId() > 0) {
 			base.setUpdatedDate(new Date());
 			baseRepo.update(base);

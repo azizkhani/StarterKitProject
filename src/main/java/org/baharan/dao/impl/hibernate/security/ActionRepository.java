@@ -4,7 +4,10 @@ import org.baharan.dao.security.IActionRepository;
 import org.baharan.dao.security.IUserRepository;
 import org.baharan.dao.impl.hibernate.GenericRepository;
 import org.baharan.model.security.Action;
+import org.springframework.stereotype.Repository;
 
+
+@Repository
 public class ActionRepository extends GenericRepository<Action> implements IActionRepository {
 
 	@Override

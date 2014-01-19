@@ -9,7 +9,9 @@ import org.baharan.dao.impl.hibernate.GenericRepository;
 import org.baharan.model.baseInfo.BaseInformation;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BaseInformationRepository extends GenericRepository<BaseInformation> implements IBaseInformationRepository{
 
 	@Override

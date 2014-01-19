@@ -7,7 +7,9 @@ import org.baharan.dao.organization.IOrganizationStructureRepository;
 import org.baharan.model.organization.OrganizationStructure;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class OrganizationStructureRepository extends GenericRepository<OrganizationStructure>  implements IOrganizationStructureRepository{
 
 	@Override

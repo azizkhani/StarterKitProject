@@ -1,20 +1,17 @@
 package org.baharan.common.controller.personel;
 
-import java.util.Date;
 import java.util.List;
 
-import org.baharan.common.utility.Utility;
 import org.baharan.core.QueryResult;
-import org.baharan.dao.personel.IPersonelRepository;
-import org.baharan.model.baseInfo.BaseInformation;
 import org.baharan.model.personel.Personel;
 import org.baharan.service.personel.IPersonelService;
-import org.hibernate.type.IntegerType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller

@@ -1,6 +1,7 @@
 package org.baharan.common.viewmodel.packet.passenger.bus;
 
 public class BusWorkDetailViewModel {
+	
 	private String vehicleCode;
 	private String vehiclePlaque;
 	private String personFirstName;

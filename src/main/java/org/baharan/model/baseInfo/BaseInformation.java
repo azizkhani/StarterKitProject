@@ -7,8 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 
-public class BaseInformation extends BaseEntity
-{
+public class BaseInformation extends BaseEntity{
 	private int code;
 	private String topic;
 	private BaseInformation parent;
@@ -33,4 +32,12 @@ public class BaseInformation extends BaseEntity
 	public BaseInformation getParent() {
 		return parent;
 	}
+	public BaseInformation() {
+		super();
+	}
+	public BaseInformation(int id) {
+		super();
+		setId(id);
+	}
+	
 }
