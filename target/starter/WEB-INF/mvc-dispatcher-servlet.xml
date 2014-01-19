@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-	<context:component-scan base-package="org.baharan.common.controller" />
+	<context:component-scan base-package="org.azizkhani.common.controller" />
 	
 	<mvc:annotation-driven>
 <!-- 		<mvc:argument-resolvers> -->
@@ -18,15 +18,16 @@
 <!-- 			</bean> -->
 <!-- 		</mvc:argument-resolvers> -->
 		<mvc:message-converters register-defaults="false">
-			<bean id="jacksonMessageConverter" class="org.baharan.common.utility.CustomMappingJacksonHttpMessageConverter" />
+			<bean id="jacksonMessageConverter" class="org.azizkhani.common.utility.dozer.annotationon.CustomMappingJacksonHttpMessageConverter" />
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	<bean class="org.azizkhani.common.utility.dozerer.JsonViewSupportFactoryBean" />
 	
 	<bean id="messageSource"  class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="baharmessages" />
 	</bean>
 	
-	<bean id="accessDeniedHandler" class="org.baharan.core.security.CoreAccessDeniedHandler">
+	<bean id="accessDeniedHandler" class="org.azizkhani.core.securitycurity.CoreAccessDeniedHandler">
 		<property name="accessDeniedUrl" value="/baharan-core/403.jsp" />
 	</bean>
 </beans>
