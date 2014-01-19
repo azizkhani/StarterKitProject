@@ -44,7 +44,7 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="jacksonMessageConverter" class="org.baharan.common.utility.dozer.annotation.CustomMappingJacksonHttpMessageConverter"></bean>
+	<bean id="jacksonMessageConverter" class="org.azizkhani.common.utility.dozer.annotation.CustomMappingJacksonHttpMessageConverter"></bean>
 
 	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />

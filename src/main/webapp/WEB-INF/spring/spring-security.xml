@@ -34,7 +34,7 @@
 	</http>
 	<global-method-security  pre-post-annotations="enabled" secured-annotations="enabled" proxy-target-class="true" />
 	
-	<beans:bean id="userDetailsService" class="org.baharan.service.security.BaharUserDetailsService">
+	<beans:bean id="userDetailsService" class="org.azizkhani.service.security.BaharUserDetailsService">
 	</beans:bean>
 
 	<beans:bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
