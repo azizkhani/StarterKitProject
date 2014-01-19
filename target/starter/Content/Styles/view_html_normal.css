@@ -1,0 +1,18 @@
+a{text-decoration: none;font-family:arial;font-size:15px;font-weight:bold;color:blue;float:right}
+body{text-align:center}	
+div{text-align:right;margin:0px;padding:3px;float:right;}
+.name{font-family:arial;font-size:15px;font-weight:bold;text-align:left;float:right;vertical-align:top}
+.value{font-family:tahoma;font-size:12px;text-align:right;vertical-align:top}
+.pair{width:345px;float:right;}
+.pair td{v-align:middle}
+.group_title{float:right;width:700px;margin-top:0px}
+.group_title td{font-family:arial;font-size:15px;font-weight:bold}
+.entity_title{float:right;width:695px;font-family:arial;font-size:15px;font-weight:bold;background-image:url(../images/view_title_bg.jpg);background-repeat: no-repeat;background-position:right;}
+.one_to_many{display:block;border:1px solid black;width:700px;margin-bottom:10px}
+
+.group_title_noprint{float:right;width:700px;font-family:arial;font-size:15px;font-weight:bold;}
+.print_btn{font-family:tahoma;font-size:13px;}
+.line{border:0px;display:none}
+.noprint{}
+img{border:1px solid blue}
+input{font-family:tahoma !important;font-size:12px!important;font-weight:ormal!important;border: 1px solid #bbbbdd;background-color:#f1f1ff;padding:1px;color:#5566aa}

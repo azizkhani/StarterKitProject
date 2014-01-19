@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+	<class name="org.baharan.model.line.LineStation" table="AFC_LineStation" lazy="true" >
+		<id name="id"  column="ID">
+			<generator class="sequence" />
+		</id>
+
+		<property name="ordering" 			type="integer"				column="Ordering" 		   unique-key="Uniq-Line-Station"			/>
+		<property name="goBack" 			type="integer"				column="GoBack" 			unique-key="Uniq-Line-Station"  		/>
+		<property name="betweenTimeMinute" 	type="integer"		column="betweenTimeMinute" 	 		/>
+	
+		<many-to-one name="line" entity-name="org.baharan.model.line.Line"    >
+                <column name="LineId" not-null="true" />
+        </many-to-one> 
+        <many-to-one name="station" entity-name="org.baharan.model.station.Station"  >
+                <column name="StationId" not-null="true" />
+        </many-to-one> 
+       
+        
+        <property name="createdBy" 		type="integer" 	column="CreatedBy" 		not-null="true" update="false" />
+		<property name="updatedBy" 		type="integer" 	column="UpdatedBy" 		not-null="true" />
+		<property name="createdDate" 	type="date" 	column="CreatedDate" 	not-null="false" update="false" />
+		<property name="updatedDate" 	type="date" 	column="UpdatedDate" 	not-null="false" />
+	</class>
+</hibernate-mapping>

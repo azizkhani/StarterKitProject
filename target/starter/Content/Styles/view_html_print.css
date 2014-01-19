@@ -1,0 +1,17 @@
+a{text-decoration: none;font-family:'b nazanin','titr';font-size:15px;font-weight:normal;color:black;float:right}
+body{text-align:center}	
+div{text-align:right;margin:0px;padding:3px;float:right}
+.name{font-family:'b nazanin','titr';font-size:14px;font-weight:normal;text-align:left;float:right;vertical-align:top}
+.value{font-family:'b nazanin','titr';font-size:14px;text-align:right;font-weight:normal;vertical-align:top}
+.pair{width:345px;float:right;}
+.pair td{v-align:middle}
+.group_title{float:right;width:700px;margin-top:0px}
+.group_title td{font-family:'b nazanin','titr';font-size:15px;font-weight:normal;}
+.entity_title{float:right;width:695px;font-family:'b nazanin','titr';font-size:15px;font-weight:normal;background-image:url(../images/view_title_bg.jpg);background-repeat: no-repeat;background-position:right;mmargin-top:5px}
+.one_to_many{display:block;border:1px solid black;width:700px;margin-bottom:10px}
+
+.group_title_noprint{display:none}
+.print_btn{display:none}
+.line{width:680px;float:right;margin-right:20px;height:1px;color:silver;border-top:1px solid black;border-bottom:0px solid silver;padding:0;padding-botom:10px}
+.noprint{display:none}
+img{border:1px solid black}

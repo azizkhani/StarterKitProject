@@ -4,25 +4,27 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
 						http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 						http://www.springframework.org/schema/context
-						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+						http://www.springframework.org/schema/context/spring-context-4.0.xsd
 						http://www.springframework.org/schema/tx
-						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+						http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	 <!--<context:property-placeholder location="classpath:oracle.hibernate.properties" />-->
 	<context:property-placeholder location="classpath:postgre.hibernate.properties" /> 
+	
 	<context:component-scan base-package="org.baharan" />
+	
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${hibernate.connection.driver_class}" />
 		<property name="url" value="${hibernate.connection.url}" />
 		<property name="username" value="${hibernate.connection.username}" />
 		<property name="password" value="${hibernate.connection.password}" />
 	</bean>
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="mappingLocations">
 			<list>
 				<value>/WEB-INF/classes/hibernate/**/*.hbm.xml</value>
@@ -42,48 +44,29 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="jacksonMessageConverter"
-		class="org.baharan.common.utility.CustomMappingJacksonHttpMessageConverter"></bean>
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="messageConverters">
+	<bean id="jacksonMessageConverter" class="org.baharan.common.utility.dozer.annotation.CustomMappingJacksonHttpMessageConverter"></bean>
 
-			<list>
-				<ref bean="jacksonMessageConverter" />
-			</list>
-		</property>
-	</bean>
-
-	<bean id="hibernateTransactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="groupRepo" class="org.baharan.dao.impl.hibernate.security.GroupRepository"
-		scope="singleton">
-	</bean>
-
-	<bean id="actionRepo"
-		class="org.baharan.dao.impl.hibernate.security.ActionRepository"
-		scope="singleton">
-	</bean>
-	<bean id="userDetailsService" class="org.baharan.service.security.BaharUserDetailsService">
-	</bean>
-
-	<bean id="organizationRepo"
-		class="org.baharan.dao.impl.hibernate.organization.OrganizationStructureRepository"
-		scope="singleton">
-	</bean>
-
-	<bean id="baseRepo"
-		class="org.baharan.dao.impl.hibernate.baseInfo.BaseInformationRepository"
-		scope="singleton">
-	</bean>
+	<bean  class="org.dozer.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles"  value="classpath*:/dozerMapping/*.dzr.xml"/>
+        <property name="customConverters">
+	      <list/>
+	    </property>
+	    <property name="eventListeners">
+	      <list/>
+	    </property>
+	    <property name="factories">
+	      <map/>
+	    </property>
+    </bean>
+	
 </beans>
 
 

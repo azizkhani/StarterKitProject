@@ -1,0 +1,13 @@
+$( initjQuery );
+function initjQuery() {
+	$('.desktopIcon').draggable({containment: '#x-desktop', cursor: 'move', stop: handleDragStop/*, snap: '#x-desktop'*/});
+};
+var iconList = new Array();
+iconList.push('Personel');
+iconList.push('Station');
+iconList.push('Terminal');
+iconList.push('User');
+iconList.push('Vehicle');
+iconList.push('Line');
+iconList.push('DeviceGroup');
+iconList.push('Location');

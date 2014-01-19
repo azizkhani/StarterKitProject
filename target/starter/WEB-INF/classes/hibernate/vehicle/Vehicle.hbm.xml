@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="true">
+	<class name="org.baharan.model.vehicle.Vehicle" table="AFC_Vehicle"  >
+		<id name="id"  column="ID">
+			<generator class="sequence" />
+		</id>
+		<property name="code" 				type="string"		column="Code" 		  			not-null="true"		unique="true"		/>
+		<property name="type" 				type="integer"		column="Type" 			  		not-null="true"							/>
+		<property name="plaque1" 			type="string"		column="Plaque1" 				not-null="true"							/>
+		<property name="plaque2" 			type="string"		column="Plaque2" 				not-null="true"							/>
+		<property name="plaque3" 			type="string"		column="Plaque3" 				not-null="true"							/>
+		<property name="plaque4" 			type="string"		column="Plaque4" 				not-null="true"							/>
+		
+		<property name="possession" 		type="integer"		column="Possession" 		  											/>
+		<property name="enginNumber" 		type="string"		column="EnginNumber" 			  										/>
+		<property name="chasisNumber" 		type="string"		column="ChasisNumber" 	  												/>
+		<property name="productionYear" 	type="string"		column="ProductionYear" 		  										/>
+		<property name="capacity" 			type="integer"		column="Capacity" 		  												/>
+		<property name="axisTotal" 			type="integer"		column="AxisTotal" 		  												/>
+		<property name="description" 		type="string"		column="Description" 		   											/>
+		
+		<many-to-one name="fuelType" entity-name="org.baharan.model.baseInfo.BaseInformation" >
+                <column name="FuelTypeId" not-null="false" />
+        </many-to-one> 
+        <many-to-one name="model" entity-name="org.baharan.model.baseInfo.BaseInformation">
+                <column name="ModelId" not-null="false" />
+        </many-to-one> 
+        <many-to-one name="mark" entity-name="org.baharan.model.baseInfo.BaseInformation">
+                <column name="MarkId" not-null="false" />
+        </many-to-one>
+        
+        <set name="lines" table="AFC_VehicleLines"   >
+            <key>
+                <column name="VehicleId" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.baharan.model.line.Line">
+                <column name="LineId" not-null="true" />
+            </many-to-many>
+        </set>
+   
+        
+        <property name="createdBy" 		type="integer" 	column="CreatedBy" 		not-null="true" update="false" />
+		<property name="updatedBy" 		type="integer" 	column="UpdatedBy" 		not-null="true" />
+		<property name="createdDate" 	type="date" 	column="CreatedDate" 	not-null="false" update="false" />
+		<property name="updatedDate" 	type="date" 	column="UpdatedDate" 	not-null="false" />
+	</class>
+</hibernate-mapping>

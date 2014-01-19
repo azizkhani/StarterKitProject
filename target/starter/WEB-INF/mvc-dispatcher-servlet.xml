@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<context:component-scan base-package="org.baharan.common.controller" />
+	
+	<mvc:annotation-driven>
+<!-- 		<mvc:argument-resolvers> -->
+<!-- 			<bean class="org.baharan.common.utility.CustomRequestResponseBodyMethodProcessor"> -->
+<!-- 				<constructor-arg ref="jacksonMessageConverter"></constructor-arg> -->
+<!-- 			</bean> -->
+<!-- 		</mvc:argument-resolvers> -->
+		<mvc:message-converters register-defaults="false">
+			<bean id="jacksonMessageConverter" class="org.baharan.common.utility.CustomMappingJacksonHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<bean id="messageSource"  class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="baharmessages" />
+	</bean>
+	
+	<bean id="accessDeniedHandler" class="org.baharan.core.security.CoreAccessDeniedHandler">
+		<property name="accessDeniedUrl" value="/baharan-core/403.jsp" />
+	</bean>
+</beans>
