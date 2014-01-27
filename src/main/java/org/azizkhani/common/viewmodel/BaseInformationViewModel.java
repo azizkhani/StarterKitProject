@@ -8,7 +8,7 @@ public class BaseInformationViewModel extends BaseEntityViewModel {
 	
 	private int code;
 	private String topic;
-    //@Mapping("parent.id")
+    @Mapping("parent.id")
 	private int parentId;
 	
 	public void setCode(int code) {
@@ -23,7 +23,7 @@ public class BaseInformationViewModel extends BaseEntityViewModel {
 	public String getTopic() {
 		return topic;
 	}
-    //@Mapping("parent.id")
+    @Mapping("parent.id")
 	public int getParentId() {
 		return parentId;
 	}

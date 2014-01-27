@@ -10,6 +10,7 @@ import org.azizkhani.model.baseInfo.BaseInformation;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 @Repository
 public class BaseInformationRepository extends GenericRepository<BaseInformation> implements IBaseInformationRepository{

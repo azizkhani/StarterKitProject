@@ -4,6 +4,7 @@ package org.azizkhani.dao.baseInfo;
 import org.azizkhani.core.QueryResult;
 import org.azizkhani.dao.IGenericRepository;
 import org.azizkhani.model.baseInfo.BaseInformation;
+import org.springframework.stereotype.Repository;
 
 public interface IBaseInformationRepository extends IGenericRepository<BaseInformation>{
 	

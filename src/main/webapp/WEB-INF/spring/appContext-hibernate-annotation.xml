@@ -29,7 +29,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>org.baharan.model.AppUser</value>
+				<value>org.azizkhani.model.AppUser</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -51,11 +51,11 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="userDao" class="org.baharan.impl.AppUserDaoImpl" scope="singleton">
+	<bean id="userDao" class="org.azizkhani.impl.AppUserDaoImpl" scope="singleton">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 
-	<bean id="userDetailsService" class="org.baharan.service.security.BaharUserDetailsService">
+	<bean id="userDetailsService" class="org.azizkhani.service.security.BaharUserDetailsService">
 	</bean>
 
 

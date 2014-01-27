@@ -13,7 +13,6 @@ public class CustomMappingJacksonHttpMessageConverter extends MappingJackson2Htt
 
 	public CustomMappingJacksonHttpMessageConverter(){
 		super();
-		System.out.println("canWrite");
 	}
 	
 	@Override
@@ -28,12 +27,10 @@ public class CustomMappingJacksonHttpMessageConverter extends MappingJackson2Htt
 	}
 	@Override
 	protected boolean canRead(MediaType mediaType) {
-		System.out.println("canRead");
 		return super.canRead(mediaType);
 	}
 	@Override
 	protected boolean canWrite(MediaType mediaType) {
-		System.out.println("canWrite");
 		return super.canWrite(mediaType);
 	}
 	@Override

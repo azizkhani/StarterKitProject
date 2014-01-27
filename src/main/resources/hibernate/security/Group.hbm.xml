@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false">
-	<class name="org.baharan.model.security.Group" table="AFC_Groups">
+	<class name="org.azizkhani.model.security.Group" table="AFC_Groups">
 		<id name="id"  column="Id">
 			<generator  class="sequence"/>
 		</id>
@@ -12,7 +12,7 @@
             <key>
                 <column name="GroupId" not-null="true" />
             </key>
-            <many-to-many entity-name="org.baharan.model.security.User">
+            <many-to-many entity-name="org.azizkhani.model.security.User">
                 <column name="UserId" not-null="true" />
             </many-to-many>
         </set>
@@ -21,7 +21,7 @@
             <key>
                 <column name="GroupId" not-null="true" />
             </key>
-            <many-to-many entity-name="org.baharan.model.security.Action">
+            <many-to-many entity-name="org.azizkhani.model.security.Action">
                 <column name="ActionId" not-null="true" />
             </many-to-many>
         </set>

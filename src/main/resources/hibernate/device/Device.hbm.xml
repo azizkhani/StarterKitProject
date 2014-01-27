@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
 	
-	   <class name="org.baharan.model.device.Device" table="AFC_Device" lazy="false">
+	   <class name="org.azizkhani.model.device.Device" table="AFC_Device" lazy="false">
 		<id name="id"  column="Id">
 			<generator  class="sequence"/>
 		</id>
@@ -11,15 +11,15 @@
 		<property name="description" 	type="string" 	column="Description" 	not-null="true" length="50" /> 
 		
 		
-		<many-to-one name="deviceGroup" entity-name="org.baharan.model.device.DeviceGroup" update="false">
+		<many-to-one name="deviceGroup" entity-name="org.azizkhani.model.device.DeviceGroup" update="false">
                 <column name="DeviceGroupId" not-null="false" />
         </many-to-one>
 		
-        <many-to-one name="model" entity-name="org.baharan.model.baseInfo.BaseInformation" fetch="join">
+        <many-to-one name="model" entity-name="org.azizkhani.model.baseInfo.BaseInformation" fetch="join">
                 <column name="ModelId" not-null="true" />
         </many-to-one> 
 	
-	   <many-to-one name="mark" entity-name="org.baharan.model.baseInfo.BaseInformation" fetch="join">
+	   <many-to-one name="mark" entity-name="org.azizkhani.model.baseInfo.BaseInformation" fetch="join">
                 <column name="MarkId" not-null="true" />
         </many-to-one> 
 

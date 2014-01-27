@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="true">
-	<class name="org.baharan.model.vehicle.VehicleDriver" table="AFC_VehicleDriver"  >
+	<class name="org.azizkhani.model.vehicle.VehicleDriver" table="AFC_VehicleDriver"  >
 		<id name="id"  column="ID">
 			<generator class="sequence" />
 		</id>
@@ -10,10 +10,10 @@
 		<property name="assignDate" 				type="string"				column="assignDate" 		   unique-key="Uniq-Line-Station"			/>
 		<property name="description" 				type="string"				column="description" 			unique-key="Uniq-Line-Station"  		/>
 	
-		<many-to-one name="driver" entity-name="org.baharan.model.personel.Personel"    >
+		<many-to-one name="driver" entity-name="org.azizkhani.model.personel.Personel"    >
                 <column name="DriverId" not-null="true" />
         </many-to-one> 
-        <many-to-one name="vehicle" entity-name="org.baharan.model.vehicle.Vehicle"  >
+        <many-to-one name="vehicle" entity-name="org.azizkhani.model.vehicle.Vehicle"  >
                 <column name="VehicleId" not-null="true" />
         </many-to-one> 
        
