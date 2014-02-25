@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
-  <class name="org.baharan.model.device.DeviceHistory" table="AFC_DeviceHistory" lazy="false">
+  <class name="org.azizkhani.model.device.DeviceHistory" table="AFC_DeviceHistory" lazy="false">
 		<id name="id"  column="Id">
 			<generator  class="sequence"/>
 		</id>
@@ -14,23 +14,23 @@
 		<property name="status" 					type="boolean" 			column="Status" 				not-null="true"  />
 		<property name="description" 				type="string" 			column="Description" 			not-null="true" length="50" />
 		
-		<many-to-one name="vehicleSetupLocation" entity-name="org.baharan.model.baseInfo.BaseInformation"  >
+		<many-to-one name="vehicleSetupLocation" entity-name="org.azizkhani.model.baseInfo.BaseInformation"  >
                 <column name="vehicleSetupLocationId" not-null="true" />
         </many-to-one>
         
-		<many-to-one name="device" entity-name="org.baharan.model.device.Device"  >
+		<many-to-one name="device" entity-name="org.azizkhani.model.device.Device"  >
                 <column name="DeviceId" not-null="true" />
         </many-to-one>
 		
-        <many-to-one name="responsible" entity-name="org.baharan.model.personel.Personel"  >
+        <many-to-one name="responsible" entity-name="org.azizkhani.model.personel.Personel"  >
                 <column name="ResponsibleId" not-null="false" />
         </many-to-one> 
 	
-	   	<many-to-one name="location" entity-name="org.baharan.model.location.Location"  >
+	   	<many-to-one name="location" entity-name="org.azizkhani.model.location.Location"  >
                 <column name="locationId" not-null="true" />
         </many-to-one> 
 
-	   	<many-to-one name="vehicle" entity-name="org.baharan.model.vehicle.Vehicle"  >
+	   	<many-to-one name="vehicle" entity-name="org.azizkhani.model.vehicle.Vehicle"  >
                 <column name="vehicleId" not-null="false" />
         </many-to-one> 
 

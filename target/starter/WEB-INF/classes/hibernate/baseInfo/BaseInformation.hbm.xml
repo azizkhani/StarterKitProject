@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class   name="org.baharan.model.baseInfo.BaseInformation" table="AFC_BaseInformation" lazy="true">
+	<class   name="org.azizkhani.model.baseInfo.BaseInformation" table="AFC_BaseInformation" lazy="true">
 		<id name="id" type="int">
 			<column name="ID" />
 			<generator class="increment" />
@@ -11,7 +11,7 @@
 		<property column="Topic"   			name="topic" 		type="string" 	not-null="true" 	length="50" unique-key="uniq-parent-code-topic"/>
 		
 		
-		<many-to-one entity-name="org.baharan.model.baseInfo.BaseInformation" name="parent" update="false"  unique-key="uniq-parent-code-topic" >
+		<many-to-one entity-name="org.azizkhani.model.baseInfo.BaseInformation" name="parent" update="false"  unique-key="uniq-parent-code-topic" >
 			<column name="ParentId" not-null="false"  />
 		</many-to-one>
 		

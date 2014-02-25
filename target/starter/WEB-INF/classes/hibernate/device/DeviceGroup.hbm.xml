@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
-   <class name="org.baharan.model.device.DeviceGroup" table="AFC_DeviceGroup" lazy="false">
+   <class name="org.azizkhani.model.device.DeviceGroup" table="AFC_DeviceGroup" lazy="false">
 		<id name="id"  column="Id">
 			<generator  class="sequence"/>
 		</id>
@@ -10,7 +10,7 @@
 		<property name="description" 	type="string" 	column="Description" 	not-null="true" length="50" /> 
 		
 		
-		<many-to-one name="parent" entity-name="org.baharan.model.device.DeviceGroup" update="false">
+		<many-to-one name="parent" entity-name="org.azizkhani.model.device.DeviceGroup" update="false">
                 <column name="ParentId" not-null="false" />
         </many-to-one>
 		
@@ -18,7 +18,7 @@
             <key>
                 <column name="ParentId" not-null="true" />
             </key>
-            <one-to-many class="org.baharan.model.device.DeviceGroup" />
+            <one-to-many class="org.azizkhani.model.device.DeviceGroup" />
         </set>
 
         <property name="createdBy" 		type="integer" 	column="CreatedBy" 		not-null="true" update="false" />

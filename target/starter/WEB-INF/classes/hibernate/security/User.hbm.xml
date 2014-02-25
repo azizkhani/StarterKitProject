@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false">
-	<class name="org.baharan.model.security.User" table="AFC_Users" dynamic-update="true">
+	<class name="org.azizkhani.model.security.User" table="AFC_Users" dynamic-update="true">
 		<id name="id" type="java.lang.Integer">
             <column name="Id" />
             <generator class="foreign">
@@ -11,7 +11,7 @@
             </generator>
         </id>
         
-		<one-to-one name="personel"  class="org.baharan.model.personel.Personel" constrained="true">
+		<one-to-one name="personel"  class="org.azizkhani.model.personel.Personel" constrained="true">
 		</one-to-one>
 		
 		<property name="firstName" 		type="string" 	column="FirstName" 		not-null="true" 	length="50" />
@@ -28,7 +28,7 @@
             <key>
                 <column name="UserId" not-null="true" />
             </key>
-            <many-to-many entity-name="org.baharan.model.security.Group">
+            <many-to-many entity-name="org.azizkhani.model.security.Group">
                 <column name="GroupId" not-null="true" />
             </many-to-many>
         </set>
@@ -37,7 +37,7 @@
             <key>
                 <column name="UserId" not-null="true" />
             </key>
-            <many-to-many entity-name="org.baharan.model.location.Location">
+            <many-to-many entity-name="org.azizkhani.model.location.Location">
                    <column name="LocationId" not-null="true" />
             </many-to-many>
         </set>

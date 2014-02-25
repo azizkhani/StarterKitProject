@@ -15,7 +15,7 @@
         var order = 'e.code desc';
         var resultNum = 0;
         var currentId = -1;
-        var emptyEntity = { id: -1,code:"",topic:"", parent:{id:""}};
+        var emptyEntity = { id: -1,code:"",topic:"", parentId:-1};
         var currentEntity = $.extend(true, {}, emptyEntity); 
         var restUrl="<c:url value = '/rest/baseinformation' />";
         var parentId=<%= request.getParameter("parentId")%>;
@@ -118,7 +118,7 @@
             baseSetInputByEntity(entity);
         }
         function setEntityFromInput(entity) {
-        	entity.parent.id=parentId;
+        	entity.parentId=parentId;
             baseSetEntityFromInput(entity);
         }
     </script>

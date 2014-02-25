@@ -4,8 +4,8 @@
           xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
   <mapping>    
-    <class-a>org.baharan.model.baseInfo.BaseInformation</class-a>
-    <class-b>org.baharan.common.viewmodel.BaseInformationViewModel</class-b>
+    <class-a>org.azizkhani.model.baseInfo.BaseInformation</class-a>
+    <class-b>org.azizkhani.common.viewmodel.BaseInformationViewModel</class-b>
     <field>
       <a>parent.parent.id</a>
       <b>parentId</b>

@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping >
-	<class name="org.baharan.model.station.Station" table="AFC_Station" lazy="true" >
+	<class name="org.azizkhani.model.station.Station" table="AFC_Station" lazy="true" >
 		<id name="id"  column="ID">
 			<generator class="sequence" />
 		</id>
@@ -14,7 +14,7 @@
 		<property name="longitude" 				type="double" 		column="Longitude" 		not-null="true"  />
 		
 		
-		<many-to-one name="location" entity-name="org.baharan.model.location.Location"   >
+		<many-to-one name="location" entity-name="org.azizkhani.model.location.Location"   >
                 <column name="LocationId" not-null="false"  />
         </many-to-one>
 		

@@ -13,21 +13,22 @@
 	
 	<mvc:annotation-driven>
 <!-- 		<mvc:argument-resolvers> -->
-<!-- 			<bean class="org.baharan.common.utility.CustomRequestResponseBodyMethodProcessor"> -->
-<!-- 				<constructor-arg ref="jacksonMessageConverter"></constructor-arg> -->
+<!-- 			<bean class="org.azizkhani.common.utility.dozer.CustomRequestResponseBodyMethodProcessor"> -->
+<!-- 				<constructor-arg index="0" ref="jacksonMessageConverter" /> -->
+<!-- 				<constructor-arg index="1" ref="mapper" /> -->
 <!-- 			</bean> -->
 <!-- 		</mvc:argument-resolvers> -->
-		<mvc:message-converters register-defaults="false">
-			<bean id="jacksonMessageConverter" class="org.azizkhani.common.utility.dozer.annotationon.CustomMappingJacksonHttpMessageConverter" />
-		</mvc:message-converters>
+<!-- 		<mvc:message-converters register-defaults="false"> -->
+<!-- 			<bean id="jacksonMessageConverter" class="org.azizkhani.common.utility.dozer.CustomMappingJacksonHttpMessageConverter" /> -->
+<!-- 		</mvc:message-converters> -->
 	</mvc:annotation-driven>
-	<bean class="org.azizkhani.common.utility.dozerer.JsonViewSupportFactoryBean" />
+	<bean class="org.azizkhani.common.utility.dozer.JsonViewSupportFactoryBean" />
 	
 	<bean id="messageSource"  class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="baharmessages" />
 	</bean>
 	
-	<bean id="accessDeniedHandler" class="org.azizkhani.core.securitycurity.CoreAccessDeniedHandler">
+	<bean id="accessDeniedHandler" class="org.azizkhani.core.security.CoreAccessDeniedHandler">
 		<property name="accessDeniedUrl" value="/baharan-core/403.jsp" />
 	</bean>
 </beans>

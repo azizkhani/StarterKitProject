@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping >
-	<class name="org.baharan.model.terminal.Terminal" table="AFC_Terminal" lazy="true" >
+	<class name="org.azizkhani.model.terminal.Terminal" table="AFC_Terminal" lazy="true" >
 		<id name="id"  column="ID">
 			<generator class="sequence" />
 		</id>
@@ -17,10 +17,10 @@
 		<property name="description" 			type="string"		column="Description" 		   										/>
 		
 
-		<many-to-one name="location" entity-name="org.baharan.model.location.Location"  >
+		<many-to-one name="location" entity-name="org.azizkhani.model.location.Location"  >
                 <column name="LocationId" not-null="true" />
         </many-to-one> 
-        <many-to-one name="responsible" entity-name="org.baharan.model.personel.Personel"  >
+        <many-to-one name="responsible" entity-name="org.azizkhani.model.personel.Personel"  >
                 <column name="ResponsibleId" not-null="true" />
         </many-to-one> 
        

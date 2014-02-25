@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping >
-	<class name="org.baharan.model.packet.Passenger" table="AFC_PassengerPacket" lazy="true" >
+	<class name="org.azizkhani.model.packet.Passenger" table="AFC_PassengerPacket" lazy="true" >
 		<id name="id"  column="ID" >
 			<generator class="sequence" />
 		</id>
@@ -13,11 +13,11 @@
 		<property name="reducerTurnRow" 			type="long"			column="reducerTurnRow" 			  			/>
 		
 		
-		<many-to-one name="line" 		column="LineId" 			entity-name="org.baharan.model.line.Line" 					 />
-		<many-to-one name="driver" 		column="PersonelId" 		entity-name="org.baharan.model.personel.Personel" 		 />
-		<many-to-one name="bus" 		column="VehicleId" 			entity-name="org.baharan.model.vehicle.Vehicle" 			 />
-		<many-to-one name="device" 		column="DeviceId" 			entity-name="org.baharan.model.device.Device" 			 />
-		<many-to-one name="location" 	column="LocationId" 		entity-name="org.baharan.model.location.Location" 	 />
+		<many-to-one name="line" 		column="LineId" 			entity-name="org.azizkhani.model.line.Line" 					 />
+		<many-to-one name="driver" 		column="PersonelId" 		entity-name="org.azizkhani.model.personel.Personel" 		 />
+		<many-to-one name="bus" 		column="VehicleId" 			entity-name="org.azizkhani.model.vehicle.Vehicle" 			 />
+		<many-to-one name="device" 		column="DeviceId" 			entity-name="org.azizkhani.model.device.Device" 			 />
+		<many-to-one name="location" 	column="LocationId" 		entity-name="org.azizkhani.model.location.Location" 	 />
         
         
 		<property name="createdDate" 	type="date" 	column="CreatedDate" 	not-null="false" update="false" />

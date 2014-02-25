@@ -2,7 +2,6 @@ package org.azizkhani.common.utility.dozer;
 
 import java.util.List;
 
-import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;

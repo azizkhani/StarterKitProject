@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="true">
-	<class name="org.baharan.model.vehicle.Vehicle" table="AFC_Vehicle"  >
+	<class name="org.azizkhani.model.vehicle.Vehicle" table="AFC_Vehicle"  >
 		<id name="id"  column="ID">
 			<generator class="sequence" />
 		</id>
@@ -21,13 +21,13 @@
 		<property name="axisTotal" 			type="integer"		column="AxisTotal" 		  												/>
 		<property name="description" 		type="string"		column="Description" 		   											/>
 		
-		<many-to-one name="fuelType" entity-name="org.baharan.model.baseInfo.BaseInformation" >
+		<many-to-one name="fuelType" entity-name="org.azizkhani.model.baseInfo.BaseInformation" >
                 <column name="FuelTypeId" not-null="false" />
         </many-to-one> 
-        <many-to-one name="model" entity-name="org.baharan.model.baseInfo.BaseInformation">
+        <many-to-one name="model" entity-name="org.azizkhani.model.baseInfo.BaseInformation">
                 <column name="ModelId" not-null="false" />
         </many-to-one> 
-        <many-to-one name="mark" entity-name="org.baharan.model.baseInfo.BaseInformation">
+        <many-to-one name="mark" entity-name="org.azizkhani.model.baseInfo.BaseInformation">
                 <column name="MarkId" not-null="false" />
         </many-to-one>
         
@@ -35,7 +35,7 @@
             <key>
                 <column name="VehicleId" not-null="true" />
             </key>
-            <many-to-many entity-name="org.baharan.model.line.Line">
+            <many-to-many entity-name="org.azizkhani.model.line.Line">
                 <column name="LineId" not-null="true" />
             </many-to-many>
         </set>

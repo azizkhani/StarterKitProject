@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping >
-	<class name="org.baharan.model.line.LineStation" table="AFC_LineStation" lazy="true" >
+	<class name="org.azizkhani.model.line.LineStation" table="AFC_LineStation" lazy="true" >
 		<id name="id"  column="ID">
 			<generator class="sequence" />
 		</id>
@@ -11,10 +11,10 @@
 		<property name="goBack" 			type="integer"				column="GoBack" 			unique-key="Uniq-Line-Station"  		/>
 		<property name="betweenTimeMinute" 	type="integer"		column="betweenTimeMinute" 	 		/>
 	
-		<many-to-one name="line" entity-name="org.baharan.model.line.Line"    >
+		<many-to-one name="line" entity-name="org.azizkhani.model.line.Line"    >
                 <column name="LineId" not-null="true" />
         </many-to-one> 
-        <many-to-one name="station" entity-name="org.baharan.model.station.Station"  >
+        <many-to-one name="station" entity-name="org.azizkhani.model.station.Station"  >
                 <column name="StationId" not-null="true" />
         </many-to-one> 
        

@@ -10,21 +10,24 @@
 						http://www.springframework.org/schema/tx
 						http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-	 <!--<context:property-placeholder location="classpath:oracle.hibernate.properties" />-->
-	<context:property-placeholder location="classpath:postgre.hibernate.properties" /> 
-	
+	<!--<context:property-placeholder location="classpath:oracle.hibernate.properties" 
+		/> -->
+	<context:property-placeholder location="classpath:postgre.hibernate.properties" />
+
 	<context:component-scan base-package="org.azizkhani" />
-	
-	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
-	
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${hibernate.connection.driver_class}" />
 		<property name="url" value="${hibernate.connection.url}" />
 		<property name="username" value="${hibernate.connection.username}" />
 		<property name="password" value="${hibernate.connection.password}" />
 	</bean>
-	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="mappingLocations">
 			<list>
 				<value>/WEB-INF/classes/hibernate/**/*.hbm.xml</value>
@@ -44,9 +47,11 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="jacksonMessageConverter" class="org.azizkhani.common.utility.dozer.CustomMappingJacksonHttpMessageConverter"></bean>
+	<bean id="jacksonMessageConverter"
+		class="org.azizkhani.common.utility.dozer.CustomMappingJacksonHttpMessageConverter"></bean>
 
-	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
@@ -55,18 +60,39 @@
 	</bean>
 
 	<bean id="mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
-        <property name="mappingFiles"  value="classpath*:/dozerMapping/*.dzr.xml"/>
-        <property name="customConverters">
-	      <list/>
-	    </property>
-	    <property name="eventListeners">
-	      <list/>
-	    </property>
-	    <property name="factories">
-	      <map/>
-	    </property>
-    </bean>
-	
+		<property name="mappingFiles" value="classpath*:/dozerMapping/*.dzr.xml" />
+		<property name="customConverters">
+			<list />
+		</property>
+		<property name="eventListeners">
+			<list />
+		</property>
+		<property name="factories">
+			<map />
+		</property>
+	</bean>
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="dataSource" 			ref="dataSource" />
+		<property name="transactionManager" 	ref="transactionManager" />
+		<property name="databaseSchemaUpdate" 	value="true" />
+		<property name="jobExecutorActivate" 	value="true" />
+		<property name="history" 				value="full" />
+		<property name="deploymentResources" 	value="classpath*:process/*.bpmn" />
+		
+	</bean>
+
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+  		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+
+	<bean id="repositoryService" 	factory-bean="processEngine" 	factory-method="getRepositoryService" />
+	<bean id="runtimeService" 		factory-bean="processEngine" 	factory-method="getRuntimeService" />
+	<bean id="taskService" 			factory-bean="processEngine" 	factory-method="getTaskService" />
+	<bean id="historyService" 		factory-bean="processEngine" 	factory-method="getHistoryService" />
+	<bean id="managementService" 	factory-bean="processEngine"  	factory-method="getManagementService" />
+	<bean id="identityService" 		factory-bean="processEngine" 	factory-method="getIdentityService" />
+
+
 </beans>
 
 
