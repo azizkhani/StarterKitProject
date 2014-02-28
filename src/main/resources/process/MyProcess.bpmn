@@ -2,43 +2,75 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <process id="myproc" name="MyProcess" isExecutable="true">
     <documentation>فرایند تست برای ثبت اطلاعات همراه با تایید</documentation>
-    <startEvent id="startevent1" name="Start" activiti:formKey="Index.jsp"></startEvent>
-    <userTask id="userTask" name="ایجاد اطلاعات پایه سامانه جامع" activiti:candidateUsers="admin" activiti:formKey="Index.jsp">
-      <documentation>ایجاد اطلاعات پایه سامانه جامع</documentation>
+    <startEvent id="startevent1" name="Start" activiti:formKey="/View/BaseInfo/Index.jsp?parentId=1"></startEvent>
+    <userTask id="userTask" name="بررسی اطلاعات پایه وارد شده" activiti:candidateUsers="admin" activiti:formKey="/View/BaseInfo/Confirm.jsp?id=${id}">
+      <documentation>ایجاد اطلاعات پایه سامانه جامع
+user add baseinformation with code :${code}  and title: ${topic}  with id:${id}</documentation>
     </userTask>
     <endEvent id="endevent1" name="End"></endEvent>
     <scriptTask id="scriptTask" name="Service Task" scriptFormat="groovy" activiti:autoStoreVariables="false">
-      <script>out:println "finish service task and finish process ";</script>
+      <script>out:println "finish service task and finish process  with ok";</script>
     </scriptTask>
     <sequenceFlow id="flow4" sourceRef="startevent1" targetRef="userTask"></sequenceFlow>
-    <sequenceFlow id="flow5" sourceRef="userTask" targetRef="scriptTask"></sequenceFlow>
     <sequenceFlow id="flow6" sourceRef="scriptTask" targetRef="endevent1"></sequenceFlow>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow7" sourceRef="userTask" targetRef="exclusivegateway1"></sequenceFlow>
+    <sequenceFlow id="flow8" sourceRef="exclusivegateway1" targetRef="scriptTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approved == 'true'}]]></conditionExpression>
+    </sequenceFlow>
+    <scriptTask id="scripttask1" name="Script Task" scriptFormat="groovy" activiti:autoStoreVariables="false">
+      <script>out:println "finish service task and finish process  with noooooooo ok";</script>
+    </scriptTask>
+    <sequenceFlow id="flow9" sourceRef="exclusivegateway1" targetRef="scripttask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approved == 'false'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow10" sourceRef="scripttask1" targetRef="endevent1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_myproc">
     <bpmndi:BPMNPlane bpmnElement="myproc" id="BPMNPlane_myproc">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="210.0" y="230.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="90.0" y="223.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="userTask" id="BPMNShape_userTask">
-        <omgdc:Bounds height="55.0" width="105.0" x="310.0" y="220.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="210.0" y="213.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="610.0" y="230.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="750.0" y="130.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="scriptTask" id="BPMNShape_scriptTask">
-        <omgdc:Bounds height="55.0" width="105.0" x="460.0" y="220.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="465.0" y="76.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="380.0" y="220.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
+        <omgdc:Bounds height="55.0" width="105.0" x="465.0" y="213.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
-        <omgdi:waypoint x="245.0" y="247.0"></omgdi:waypoint>
-        <omgdi:waypoint x="310.0" y="247.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
-        <omgdi:waypoint x="415.0" y="247.0"></omgdi:waypoint>
-        <omgdi:waypoint x="460.0" y="247.0"></omgdi:waypoint>
+        <omgdi:waypoint x="125.0" y="240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="210.0" y="240.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
-        <omgdi:waypoint x="565.0" y="247.0"></omgdi:waypoint>
-        <omgdi:waypoint x="610.0" y="247.0"></omgdi:waypoint>
+        <omgdi:waypoint x="570.0" y="103.0"></omgdi:waypoint>
+        <omgdi:waypoint x="767.0" y="130.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="315.0" y="240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="240.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="400.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="400.0" y="137.0"></omgdi:waypoint>
+        <omgdi:waypoint x="517.0" y="131.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="420.0" y="240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="240.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow10" id="BPMNEdge_flow10">
+        <omgdi:waypoint x="570.0" y="240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="767.0" y="240.0"></omgdi:waypoint>
+        <omgdi:waypoint x="767.0" y="165.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

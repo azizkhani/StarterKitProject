@@ -12,6 +12,7 @@
 							<th nowrap="nowrap">description</th>
 							<th nowrap="nowrap">version</th>
 							<th nowrap="nowrap">startFormKey</th>
+							<th nowrap="nowrap">formKey</th>
 							<th nowrap="nowrap">actions</th>
 						</tr>
 					</thead>
@@ -30,8 +31,9 @@
 									<td nowrap="nowrap">${description}</td>
 									<td nowrap="nowrap">${version}</td>
 									<td nowrap="nowrap">${startFormKey}</td>
+									<td nowrap="nowrap">${formKey}</td>
 									<td nowrap="nowrap">
-										<span style="cursor:pointer;color:blue" onclick="startProcess('${key}')">startProcess</span>
+										<span style="cursor:pointer;color:blue" onclick="startProcess('${key}','${formKey}','${description}')">startProcess</span>
 									</td>
 
 							    </tr>

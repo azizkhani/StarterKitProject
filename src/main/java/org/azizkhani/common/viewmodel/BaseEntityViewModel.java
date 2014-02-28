@@ -14,6 +14,8 @@ public class BaseEntityViewModel {
 	private Date createdDate;
 	private Date updatedDate;
 	private Boolean isEnabled;
+	private String processDefinationKey;
+	private String taskKey;
 
 	public int getId() {
 		return id;
@@ -62,4 +64,21 @@ public class BaseEntityViewModel {
 	public void setIsEnabled(Boolean isEnabled) {
 		this.isEnabled = isEnabled;
 	}
+
+	public String getProcessDefinationKey() {
+		return processDefinationKey;
+	}
+
+	public void setProcessDefinationKey(String processDefinationKey) {
+		this.processDefinationKey = processDefinationKey;
+	}
+
+	public String getTaskKey() {
+		return taskKey;
+	}
+
+	public void setTaskKey(String taskKey) {
+		this.taskKey = taskKey;
+	}
+	
 }

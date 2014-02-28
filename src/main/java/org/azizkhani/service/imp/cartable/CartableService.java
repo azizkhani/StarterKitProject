@@ -1,6 +1,7 @@
 package org.azizkhani.service.imp.cartable;
 
 import java.util.List;
+import java.util.Map;
 
 import org.activiti.engine.FormService;
 import org.activiti.engine.HistoryService;
@@ -52,16 +53,19 @@ public class CartableService implements ICartableService {
 		ProcessInstance processInstance = runtimeService.startProcessInstanceById(processId);
 		System.out.println("id " + processInstance.getId() + " " + processInstance.getProcessDefinitionId());
 	}
+	public void startProcessInstanceById(String processId,Map<String,Object> params) {
+		ProcessInstance processInstance = runtimeService.startProcessInstanceById(processId);
+		System.out.println("id " + processInstance.getId() + " " + processInstance.getProcessDefinitionId());
+	}
 
 	public void startProcessInstanceByKey(String processKey) {
 		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processKey);
 		System.out.println("id " + processInstance.getId() + " " + processInstance.getProcessDefinitionId());
 	}
-	public String getStartFormKeyByProcessId(String processId){
-		return formService.getStartFormData(processId).getFormKey();
+	public void startProcessInstanceByKey(String processKey,Map<String,Object> params) {
+		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processKey,params);
+		System.out.println("id " + processInstance.getId() + " " + processInstance.getProcessDefinitionId());
 	}
-	
-	
 	public void deploy(String processPath) {
 		// process/myProcess.bpmn
 		repositoryService.createDeployment().addClasspathResource(processPath).deploy();
@@ -132,6 +136,12 @@ public class CartableService implements ICartableService {
 		taskService.complete(task.getId());
 		System.out.println("completeTask"+task.getId()+" name"+task.getName());
 	}
+	@Override
+	public void completeTask(String taskId,Map<String,Object> params) {
+		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
+		taskService.complete(task.getId(),params);
+		System.out.println("completeTask"+task.getId()+" name"+task.getName());
+	}
 
 	@Override
 	public void claimTask(String taskId) {
@@ -143,5 +153,25 @@ public class CartableService implements ICartableService {
 	@Override
 	public List<ProcessInstance> getProcessInstance() {
 		return runtimeService.createNativeProcessInstanceQuery().list();
+	}
+
+	@Override
+	public String getStartFormKeyByProcessDefinationId(String processDefinationId) {
+		try{
+			return formService.getStartFormKey(processDefinationId);
+		}
+		catch( Exception ex){
+			return "";
+		}
+	}
+
+	@Override
+	public String getTaskFormKeyById(String taskId) {
+		try{
+			return formService.getTaskFormData(taskId).getFormKey();
+		}
+		catch( Exception ex){
+			return "";
+		}
 	}
 }

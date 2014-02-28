@@ -19,7 +19,11 @@ public class TaskViewModel {
 	public Date dueDate;
 	public String parentTaskId;
 	public boolean suspended;
-
+	public String formKey;
+	public Map<String,Object> taskLocalVariables;
+	public Map<String,Object> processVariables;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -132,5 +136,29 @@ public class TaskViewModel {
 		this.suspended = suspended;
 	}
 
+	public String getFormKey() {
+		return formKey;
+	}
+
+	public void setFormKey(String formKey) {
+		this.formKey = formKey;
+	}
+
+	public Map<String, Object> getTaskLocalVariables() {
+		return taskLocalVariables;
+	}
+
+	public void setTaskLocalVariables(Map<String, Object> taskLocalVariables) {
+		this.taskLocalVariables = taskLocalVariables;
+	}
+
+	public Map<String, Object> getProcessVariables() {
+		return processVariables;
+	}
+
+	public void setProcessVariables(Map<String, Object> processVariables) {
+		this.processVariables = processVariables;
+	}
+	
 
 }

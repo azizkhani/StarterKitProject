@@ -18,6 +18,9 @@ public abstract class BaseEntity implements Serializable  {
 	private Date createdDate;
 	private Date updatedDate;
 	private Boolean isEnabled;
+	private String processDefinationKey;
+	private String taskKey;
+	
 
 	public int getId() {
 		return id;
@@ -75,4 +78,21 @@ public abstract class BaseEntity implements Serializable  {
 		super();
 		this.id = id;
 	}
+
+	public String getProcessDefinationKey() {
+		return processDefinationKey;
+	}
+
+	public void setProcessDefinationKey(String processDefinationKey) {
+		this.processDefinationKey = processDefinationKey;
+	}
+
+	public String getTaskKey() {
+		return taskKey;
+	}
+
+	public void setTaskKey(String taskKey) {
+		this.taskKey = taskKey;
+	}
+	
 }

@@ -27,6 +27,7 @@ import org.azizkhani.service.cartable.ICartableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,13 @@ public class BaseInformationController {
 
 	@Autowired(required = true)
 	private IBaseInformationRepository baseRepo;
+	
+	
+	
+	@Autowired(required = true)
+	private ICartableService iCartableService;
+	
+	
 
 	@RequestMapping("/list/{parentId}")
 	@ResponseBody
@@ -59,6 +67,15 @@ public class BaseInformationController {
 		baseRepo.deleteByEntityId(Id);
 		return true;
 	}
+	
+	@RequestMapping(value = "/confirm/{taskId}/{approved}", method = RequestMethod.POST)
+	@ResponseBody
+	public Boolean confirm(@PathVariable String taskId,@PathVariable Boolean approved) {
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("approved", approved);
+		iCartableService.completeTask(taskId, params);
+		return true;
+	}
 
 	@RequestMapping(value = "/save/{parentId}", method = RequestMethod.POST)
 	@ResponseBody
@@ -74,6 +91,11 @@ public class BaseInformationController {
 			base.setCreatedDate(new Date());
 			base.setUpdatedDate(new Date());
 			baseRepo.add(base);
+			Map<String,Object> params=new HashMap<String, Object>();
+			params.put("code", base.getCode());
+			params.put("topic", base.getTopic());
+			params.put("id", base.getId());
+			iCartableService.startProcessInstanceByKey(base.getProcessDefinationKey(),params);
 		}
 		return true;
 	}

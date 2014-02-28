@@ -2,11 +2,13 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <process id="myproc" name="MyProcess" isExecutable="true">
     <documentation>فرایند تست برای ثبت اطلاعات همراه با تایید</documentation>
-    <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="userTask" name="User Task" activiti:candidateUsers="azizkhani" activiti:formKey="Index.jsp"></userTask>
+    <startEvent id="startevent1" name="Start" activiti:formKey="Index.jsp"></startEvent>
+    <userTask id="userTask" name="ایجاد اطلاعات پایه سامانه جامع" activiti:candidateUsers="admin" activiti:formKey="Index.jsp">
+      <documentation>ایجاد اطلاعات پایه سامانه جامع</documentation>
+    </userTask>
     <endEvent id="endevent1" name="End"></endEvent>
     <scriptTask id="scriptTask" name="Service Task" scriptFormat="groovy" activiti:autoStoreVariables="false">
-      <script>        out:println "validating order for isbn ";</script>
+      <script>out:println "finish service task and finish process ";</script>
     </scriptTask>
     <sequenceFlow id="flow4" sourceRef="startevent1" targetRef="userTask"></sequenceFlow>
     <sequenceFlow id="flow5" sourceRef="userTask" targetRef="scriptTask"></sequenceFlow>

@@ -13,7 +13,7 @@ public class ProcessDefinitionViewModel {
 	public String diagramResourceName;
 	public boolean startFormKey;
 	public boolean suspended;
-
+	public String formKey;
 	public String getId() {
 		return id;
 	}
@@ -101,4 +101,13 @@ public class ProcessDefinitionViewModel {
 	public void setSuspended(boolean suspended) {
 		this.suspended = suspended;
 	}
+
+	public String getFormKey() {
+		return formKey;
+	}
+
+	public void setFormKey(String formKey) {
+		this.formKey = formKey;
+	}
+	
 }

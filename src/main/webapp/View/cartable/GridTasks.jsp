@@ -12,6 +12,7 @@
 							<th nowrap="nowrap">description</th>
 							<th nowrap="nowrap">processInstanceId</th>
 							<th nowrap="nowrap">createTime</th>
+							<th nowrap="nowrap">formKey</th>
 							<th nowrap="nowrap">actions</th>
 						</tr>
 					</thead>
@@ -27,12 +28,14 @@
 									<td nowrap="nowrap">${id}</td>
 									<td nowrap="nowrap">${name}</td>
 									<td nowrap="nowrap">${taskDefinitionKey}</td>
-									<td nowrap="nowrap">${description}</td>
+									<td nowrap="nowrap">${description.substring(1,50)}</td>
 									<td nowrap="nowrap">${processInstanceId}</td>
 									<td nowrap="nowrap">${createTime}</td>
+									<td nowrap="nowrap">${formKey}</td>
 									<td nowrap="nowrap">
 										<span style="cursor:pointer;color:blue" onclick="claimTask('${id}')">claim</span>
 										<span style="cursor:pointer;color:red" onclick="completeTask('${id}')">complete</span>
+										<span style="cursor:pointer;color:green" onclick="startTask('${id}','${formKey}','${name}')">start</span>
 									</td>
 
 							    </tr>
