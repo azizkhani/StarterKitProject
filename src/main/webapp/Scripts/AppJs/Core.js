@@ -55,8 +55,8 @@ function pageLoad() {
         $('#pageSize').val('15');
     showElements(new Array('table_content'));
     init();
-    Tabs.init('tabList', 'tabContents');
-    SearchTabs.init('searchTabList', 'searchTabContents');
+//    Tabs.init('tabList', 'tabContents');
+//    SearchTabs.init('searchTabList', 'searchTabContents');
 }
 function Loader(isFade) {
     if (isFade) {

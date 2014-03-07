@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
-  <process id="myproc" name="MyProcess" isExecutable="true">
+  <process id="myproc" name="فرایند ثبت اطلاعات پایه به همراه تایید" isExecutable="true">
     <documentation>فرایند تست برای ثبت اطلاعات همراه با تایید</documentation>
     <startEvent id="startevent1" name="Start" activiti:formKey="/View/BaseInfo/Index.jsp?parentId=1"></startEvent>
     <userTask id="userTask" name="بررسی اطلاعات پایه وارد شده" activiti:candidateUsers="admin" activiti:formKey="/View/BaseInfo/Confirm.jsp?id=${id}">
@@ -22,7 +22,7 @@ user add baseinformation with code :${code}  and title: ${topic}  with id:${id}<
       <script>out:println "finish service task and finish process  with noooooooo ok";</script>
     </scriptTask>
     <sequenceFlow id="flow9" sourceRef="exclusivegateway1" targetRef="scripttask1">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approved == 'false'}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[c]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow10" sourceRef="scripttask1" targetRef="endevent1"></sequenceFlow>
   </process>
