@@ -3,14 +3,13 @@ package org.azizkhani.service.imp.location;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.azizkhani.dao.IGenericRepository;
 import org.azizkhani.dao.location.ILocationRepository;
-import org.azizkhani.model.line.LineStation;
 import org.azizkhani.model.location.Location;
 import org.azizkhani.service.imp.GenericService;
 import org.azizkhani.service.location.ILocationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 @Service
 public class LocationService extends GenericService<Location> implements ILocationService {
 	

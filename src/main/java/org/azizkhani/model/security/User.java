@@ -167,6 +167,6 @@ public class User extends BaseEntity implements UserDetails {
 	@JsonIgnore
 	@Override
 	public boolean isEnabled() {
-		return getIsEnabled();
+		return getIsActive();
 	}
 }

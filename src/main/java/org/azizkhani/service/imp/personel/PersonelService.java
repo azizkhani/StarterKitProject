@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.azizkhani.dao.IGenericRepository;
 import org.azizkhani.dao.personel.IPersonelRepository;
-import org.azizkhani.model.line.LineStation;
 import org.azizkhani.model.personel.Personel;
 import org.azizkhani.service.imp.GenericService;
 import org.azizkhani.service.personel.IPersonelService;

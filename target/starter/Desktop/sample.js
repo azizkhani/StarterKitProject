@@ -906,6 +906,27 @@ MyDesktop.MenuUC4 = Ext.extend(Ext.app.Module, {
                         win.show();
                     }
                 }
+                , {
+                    text: 'cartable',
+                    iconCls: 'bogus',
+                    scope: this,
+                    handler: function (src) {
+                        var desktop = this.app.getDesktop();
+                        var win = desktop.getWindow('PageId5Cartable');
+                        if (!win) {
+                            win = desktop.createWindow({
+                                id: 'PageGroup'
+				                , title: src.text
+				                , width: 1024
+				                , height: 550
+								, html: '<iframe src="View/cartable/Index.jsp" width="100%" height="100%" frameborder="0"></iframe>'
+				                , iconCls: 'bogus'
+				                , plain: true
+                            });
+                        }
+                        win.show();
+                    }
+                }
                 ]
             }
         }

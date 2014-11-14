@@ -1,11 +1,9 @@
 package org.azizkhani.service.imp.security;
 
-import java.util.Collection;
 import java.util.Date;
 
 import org.azizkhani.dao.IGenericRepository;
 import org.azizkhani.dao.security.IUserRepository;
-import org.azizkhani.model.line.LineStation;
 import org.azizkhani.model.security.User;
 import org.azizkhani.service.imp.GenericService;
 import org.azizkhani.service.security.IUserService;

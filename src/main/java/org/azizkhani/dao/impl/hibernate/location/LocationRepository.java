@@ -1,12 +1,9 @@
 package org.azizkhani.dao.impl.hibernate.location;
 import java.util.List;
 
-import org.azizkhani.dao.coding.ICodingRepository;
 import org.azizkhani.dao.impl.hibernate.GenericRepository;
 import org.azizkhani.dao.location.ILocationRepository;
 import org.azizkhani.model.location.Location;
-import org.azizkhani.model.organization.OrganizationStructure;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;

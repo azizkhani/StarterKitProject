@@ -32,7 +32,6 @@ public class Personel extends BaseEntity  {
 	private BaseInformation educationLevel;
     private BaseInformation licenseType;
     private Set<BaseInformation> actors;
-	private OrganizationInfo organizationInfo;
 
 
 	public String getPersonCode() {
@@ -186,13 +185,6 @@ public class Personel extends BaseEntity  {
 		this.licenseType = licenseType;
 	}
 
-
-	public OrganizationInfo getOrganizationInfo() {
-		return organizationInfo;
-	}
-	public void setOrganizationInfo(OrganizationInfo organizationInfo) {
-		this.organizationInfo = organizationInfo;
-	}
 	
 	public Set<BaseInformation> getActors() {
 		return actors;

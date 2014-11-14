@@ -7,6 +7,14 @@
 	<meta charset="UTF-8">
 	<title>Hafiz cartable</title>
 	<%@ include file="../HeadN.jsp"%>
+	<style>
+	
+		#header {
+		    background: none repeat scroll 0 0 ;
+		    direction: rtl;
+		    text-align: center;
+		}
+	</style>
 	<script language="javascript" type="text/javascript">
 		var restUrl = "<c:url value = '/rest/cartable' />";
 		$(function(){	
@@ -90,11 +98,11 @@
 		<div onclick="removeit()" data-options="iconCls:'icon-remove'">نمایش فرایند</div>
 	</div>
 	<div class="easyui-layout" style="width:100%;height:600px;margin-left: 1px;margin-right: 1px">
-		<div data-options="region:'north'" style="height:50px;text-align: right;">
-			<img src="logoleft.png" height="50px" width="240px" style="vertical-align: middle;"></img>کارتابل گردش کاری شرکت حفیظ
+		<div id="header" data-options="region:'north'" style="height:50px;text-align: right;">
+			<img src="" height="50px" width="240px" style="vertical-align: middle;"></img>سامانه گردش کار علی اکبر عزیزخانی
 		</div>
-		<div data-options="region:'south',split:true" style="height:50px;"></div>
-		<div data-options="region:'east',split:true" title="منوها" style="width:240px;">
+		<div data-options="region:'south',split:true" style="height:50px;font-weight:normal;"></div>
+		<div data-options="region:'east',split:true" title="منوها" style="width:240px;font-weight:normal;">
 			<div class="easyui-accordion" data-options="fit:true,border:false">
 				<div title="کارتابل ها" style="padding:10px;">
 					<ul class="easyui-tree" data-options="url:'tree_cartables.json',method:'get',animate:true,dnd:true"></ul>
@@ -119,7 +127,7 @@
 							<th  data-options="field:'processInstanceId'">کد فرایند اجرایی</th>
 							<th  data-options="field:'createTime'">تاریخ ارجاع</th>
 							<th  data-options="field:'formKey'">کد فرم</th>
-							<th  data-options="field:'actions'">actions</th>
+							<th  data-options="field:'actions',iconCls:'icon-save'">actions</th>
 					</tr>
 				</thead>
 			</table>

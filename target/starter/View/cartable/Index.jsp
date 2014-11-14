@@ -31,31 +31,48 @@
 			Loader(true);
 			$.getJSON(restUrl + "/task/list", {}, function(entities) {
 				$('table.gridtasks tbody tr').remove();
-				$('#GridRowTemplateTask').tmpl(entities).appendTo(
-						'#entityBodyTask');
+				$('#GridRowTemplateTask').tmpl(entities).appendTo('#entityBodyTask');
 				$('table.gridtasks tbody tr:not([th]):odd').addClass('oddRow');
-				$('table.gridtasks tbody tr:not([th]):even').css(
-						'backgroundColor', '#DFEBF4');
+				$('table.gridtasks tbody tr:not([th]):even').css('backgroundColor', '#DFEBF4');
 				createNavigation(10, pageNo, pageSize);
 				Loader(false);
 			});
 		}
-		function startProcess(processKey) {
-			Loader(true);
-			$.ajax({
-				type : "POST",
-				url : restUrl + "/process/startByKey/" + processKey,
-				contentType : "application/json;",
-				dataType : "json",
-				success : function(res) {
-					Loader(false);
-					fillAuthenticatedUserTasks();
-				},
-				error : function() {
-					Loader(false);
-					fillAuthenticatedUserTasks();
+		function startProcess(processKey, formKey,processName) {
+			if (formKey.length > 0) {
+				if(formKey.indexOf('?')>=0){
+					openWindow("1221", processName, formKey+'&processDefinationKey='+processKey, 800, 400);
 				}
-			});
+				else{
+					openWindow("1221", processName, formKey+'?processDefinationKey='+processKey, 800, 400);
+				}
+			} else {
+				Loader(true);
+				$.ajax({
+					type : "POST",
+					url : restUrl + "/process/startByKey/" + processKey,
+					contentType : "application/json;",
+					dataType : "json",
+					success : function(res) {
+						Loader(false);
+						fillAuthenticatedUserTasks();
+					},
+					error : function() {
+						Loader(false);
+						fillAuthenticatedUserTasks();
+					}
+				});
+			}
+		}
+		function startTask(taskId, formKey,taskName) {
+			if (formKey.length > 0) {
+				if(formKey.indexOf('?')>=0){
+					openWindow("1221", taskName, formKey+'&taskKey='+taskId, 800, 400);
+				}
+				else{
+					openWindow("1221", taskName, formKey+'?taskKey='+taskId, 800, 400);
+				}
+			} 
 		}
 		function completeTask(taskId) {
 			Loader(true);

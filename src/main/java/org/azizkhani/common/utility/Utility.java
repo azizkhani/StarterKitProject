@@ -1,13 +1,14 @@
 package org.azizkhani.common.utility;
 
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 public class Utility {
 	public static void aa() {
 		List<Integer> list=new ArrayList<Integer>();
@@ -73,4 +74,5 @@ public class Utility {
 		double d=2.005446919524449;
 		System.out.println(d);
 	}
+	
 }

@@ -6,6 +6,7 @@
 <script type="text/javascript" src="<c:url value = '/Scripts/MyJQuery/mask/jquery.maskedinput.js'/>"> </script>
 <script type="text/javascript" src="<c:url value = '/Scripts/MyJQuery/jqueryeasyui/jquery.easyui.min.js'/>"> </script>
 <script type="text/javascript" src="<c:url value = '/Scripts/MyJQuery/jqueryeasyui/easyui-rtl.js'/>"> </script>
+<script type="text/javascript" src="<c:url value = '/Scripts/MyJQuery/jqueryeasyui/locale/easyui-lang-fa.js'/>"> </script>
 <link rel="stylesheet" type="text/css" href="<c:url value = '/Scripts/MyJQuery/jqueryeasyui/themes/default/easyui.css'/>" >
 <link rel="stylesheet" type="text/css" href="<c:url value = '/Scripts/MyJQuery/jqueryeasyui/themes/icon.css'/>" >
 <link rel="stylesheet" type="text/css" href="<c:url value = '/Scripts/MyJQuery/jqueryeasyui/themes/easyui-rtl.css'/>" >

@@ -1,12 +1,10 @@
 package org.azizkhani.common.controller.organization;
 
 import java.util.List;
-import java.util.Set;
 
 import org.azizkhani.core.QueryResult;
 import org.azizkhani.dao.organization.IOrganizationStructureRepository;
 import org.azizkhani.model.organization.OrganizationStructure;
-import org.azizkhani.model.security.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

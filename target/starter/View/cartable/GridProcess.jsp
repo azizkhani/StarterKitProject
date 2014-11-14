@@ -33,7 +33,7 @@
 									<td nowrap="nowrap">${startFormKey}</td>
 									<td nowrap="nowrap">${formKey}</td>
 									<td nowrap="nowrap">
-										<span style="cursor:pointer;color:blue" onclick="startProcess('${key}')">startProcess</span>
+										<span style="cursor:pointer;color:blue" onclick="startProcess('${key}','${formKey}','${description}')">startProcess</span>
 									</td>
 
 							    </tr>
